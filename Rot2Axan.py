@@ -16,6 +16,6 @@ def Rot2Axa(A):
     return(r,x,tr)
 
 A = [[ 1, 0, 0],
- [0 , 0,  1],
- [ 0 , -1 , 0]]
+ [0 , 1,  0],
+ [ 0 , 0, 1]]
 print(Rot2Axa(A))

@@ -20,4 +20,4 @@ def Eul2Rot(k1,x,k2,y,k3,z):
     Y = np.dot(Z2,X)
     R = np.dot(Y,Z1)
     return R
-print(Eul2Rot(2,0,0,90,2,0))
+print(Eul2Rot(2,0,0,0,2,0))
