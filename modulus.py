@@ -6,7 +6,7 @@ def modulus(a):
     mod = np.sqrt(sum1)
     return mod
 def normalize(a):
-    b = np.zeros(3)
+    b = np.zeros(len(a))
     for i in range(0,len(a)):
         b[i] = a[i]/(modulus(a))
     return b

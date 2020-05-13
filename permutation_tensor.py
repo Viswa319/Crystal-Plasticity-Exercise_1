@@ -14,4 +14,10 @@ def permutation(i,j,k):
     elif i ==1 and j == 0 and k == 2:
         return -1
     elif i ==2 and j == 1 and k == 0:
-        return -1              
+        return -1           
+
+def sgn(x):
+    if x > 0:
+        return 1
+    elif x < 0:
+        return -1   

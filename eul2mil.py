@@ -25,4 +25,4 @@ def eul2mil(x,y,z):
         if N[0]%1 == 0 and N[1]%1 ==0 and N[2]%1 ==0:
             break
     return B,N
-print(eul2mil(90,0,0))
+print(eul2mil(90,0,360))
