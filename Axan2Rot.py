@@ -10,7 +10,7 @@ def Axan2Rot(n,w):
         A[i][i] = c + (1-c)*(n[i])**2
         for j in range(0,3):
             for k in range(0,3):
-                if i != j and i!=k and j!=k:  
+                if i != j and i!=k and j!=k:
                     A[i][j] = (1-c)*(n[i])*(n[j])+permutation(i,j,k)*s*n[k]
     return A
 n = [0,0,1]
