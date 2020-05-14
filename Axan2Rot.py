@@ -1,18 +1,20 @@
 import math
 import numpy as np
 from permutation_tensor import permutation
-def Axan2Rot(n,w):
-    W = math.radians(w)
-    c = math.cos(W)
-    s = math.sin(W)
-    A = np.zeros((3,3))
-    for i in range(0,3):
-        A[i][i] = c + (1-c)*(n[i])**2
-        for j in range(0,3):
-            for k in range(0,3):
-                if i != j and i!=k and j!=k:
-                    A[i][j] = (1-c)*(n[i])*(n[j])+permutation(i,j,k)*s*n[k]
+#This function transforms from axis angle pair to rotation matrix
+def Axan2Rot(N):
+    A = np.zeros((len(N),3,3)) #Creating array with zeros in it
+    for s in range(0,len(N)):
+        W = math.radians(N[s][3]) #This converts angle from degrees to radians
+        co = math.cos(W) 
+        si = math.sin(W)
+        for i in range(0,3):
+            A[s][i][i] = co + (1-co)*(N[s][i])**2 #Modifying diagonal values of rotation matrix with appropriate formulae
+            for j in range(0,3):
+                for k in range(0,3):
+                    if i != j and i!=k and j!=k:
+                        A[s][i][j] = round((1-co)*(N[s][i])*(N[s][j])+permutation(i,j,k)*si*N[s][k]) #Modifying non-diagonal values of rotation matrix with appropriate formulae
     return A
-n = [0,0,1]
-w = 0
-print(Axan2Rot(n,w))
+# Testing the function for few values
+N = [[0,0,1,0],[0,0,1,90],[0,0,1,180]]
+print(Axan2Rot(N))
