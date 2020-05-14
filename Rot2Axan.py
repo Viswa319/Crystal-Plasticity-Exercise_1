@@ -6,7 +6,6 @@ from modulus import normalize,modulus
 def Rot2Axa(A):
     tr = np.zeros(len(A))
     x = np.zeros(len(A))
-    r = np.zeros((len(A),4))
     R = np.zeros((len(A),4))
     for L in range(0,len(A)):
         tr[L] = 0
