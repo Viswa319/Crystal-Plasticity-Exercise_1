@@ -13,6 +13,6 @@ def Rot2Eul(A):
     z = math.degrees(Z)
     return x,y,z
 A = [[ 1, 0, 0],
- [0 , 0,  1],
- [ 0 , -1 , 0]]
+ [0 , 1,  0],
+ [ 0 , 0 , 1]]
 print(Rot2Eul(A))

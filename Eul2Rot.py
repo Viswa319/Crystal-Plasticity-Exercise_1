@@ -29,6 +29,6 @@ def Eul2Rot(Theta,rotation):
         R[i] = np.dot(Y[i],Z1[i]) #Multiplies the resultant matrix from above operation and first rotation matrix which gives the final rotation
     return R
 # Testing the function for few values
-Theta = [[0,0,0],[90,0,0],[180,0,0]]
+Theta = [[0,0,0],[90,0,0],[90,360,-90]]
 rot = [[2,0,2],[2,0,2],[2,0,2]]
 print(Eul2Rot(Theta,rot))
