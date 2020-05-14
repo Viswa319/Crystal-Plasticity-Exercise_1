@@ -1,7 +1,9 @@
 from Eul2Axan import Eul2Axa
 from Axan2Rod import Axa2Rod
-def Eul2Rod(x,y,z):
-    n = Eul2Axa(x,y,z)[0]
-    w = Eul2Axa(x,y,z)[1]
-    return(Axa2Rod(n,w))
-Eul2Rod(360,0,360)
+def Eul2Rod(Theta):
+    for i in range(0,len(Theta)):
+        N = Eul2Axa(Theta)
+        rho = Axa2Rod(N)
+    return rho 
+# Testing the function for few values
+Theta = [[0,0,0],[90,0,0],[180,0,0]]
