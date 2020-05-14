@@ -1,7 +1,7 @@
 import math
 import numpy as np
 from modulus import modulus 
-#This function transforms quarternions to homochoric representation
+#This function transforms quarternions to Rodrigues representation
 def Qu2Rod(q):
     rho = np.zeros((len(q),4))
     s = np.zeros(len(q))
@@ -17,5 +17,6 @@ def Qu2Rod(q):
             rho[j][0:3] = [0,0,-1]
     return rho
 # Testing the function for few values
+#Input array of quarternions of size (n,4) where n will be the number of set of quarternions
 q = [[1.0000000, 0.0000000, 0.0000000, 0.0000000],[0.7071068 ,0.0000000, 0.0000000, 0.7071068],[0.0000000 ,0.0000000, 0.0000000, 1.0000000]]
 print(Qu2Rod(q))

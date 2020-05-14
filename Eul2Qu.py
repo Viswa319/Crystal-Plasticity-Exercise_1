@@ -18,5 +18,6 @@ def Eul2Qu(Theta):
         q[i][3] = round(-P*c*math.sin(sigma),7) #Assigning fourth term of quarternions
     return q
 # Testing the function for few values
+#This function takes input of vector of Euler indices of size (n,3) where n is the number of sets of euler angles
 Theta = [[0,0,0],[90,0,0],[180,0,0]]
 print(Eul2Qu(Theta))

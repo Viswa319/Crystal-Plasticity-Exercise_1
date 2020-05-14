@@ -1,18 +1,23 @@
 import math
+import numpy as np
+#This function transforms from rotation matrix to axis angle representation
 def Rot2Eul(A):
-    if A[2][2] == 1:
-        Y = 0
-        X = math.atan2(A[0][1],A[0][0])
-        Z = X
-    else:
-        Y = math.acos(A[2][2])
-        X = math.atan2((A[2][0]/math.sin(Y)),-(A[2][1]/math.sin(Y)))
-        Z = math.atan2((A[0][2]/math.sin(Y)),(A[1][2]/math.sin(Y)))
-    x = math.degrees(X)
-    y = math.degrees(Y)
-    z = math.degrees(Z)
-    return x,y,z
-A = [[ 1, 0, 0],
- [0 , 1,  0],
- [ 0 , 0 , 1]]
+    X = np.zeros((len(A),3)) #Creating vectors with zeros in it
+    x = np.zeros((len(A),3))
+    for i in range(0,len(A)):
+        if A[i][2][2] == 1: #if the last diagonal element of rotation tensor is 1 
+            X[i][1] = 0
+            X[i][0] = math.atan2(A[i][0][1],A[i][0][0])
+            X[i][2] = X[i][0]
+        else: # Transforming rotation matrix to Euler angles
+            X[i][1] = math.acos(A[i][2][2]) 
+            X[i][0] = math.atan2((A[i][2][0]/math.sin(X[i][1])),-(A[i][2][1]/math.sin(X[i][1])))
+            X[i][2] = math.atan2((A[i][0][2]/math.sin(X[i][1])),(A[i][1][2]/math.sin(X[i][1])))
+        x[i][0] = math.degrees(X[i][0]) #Converting from radians to degrees
+        x[i][1] = math.degrees(X[i][1])
+        x[i][2] = math.degrees(X[i][2])
+    return x
+#Testing function for few values
+#Input array of rotation matrix/matrices of size (n,3,3) where n will be the number of rotation matrices
+A = [[[1,0,0],[0,1,0],[0,0,1]],[[0,1,0],[-1,0,0],[0,0,1]]]
 print(Rot2Eul(A))

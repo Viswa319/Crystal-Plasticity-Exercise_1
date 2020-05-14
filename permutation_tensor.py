@@ -1,5 +1,5 @@
 #This function basically gives values for permutation tensor
-# i.e. if cyclic rotation of 1,2,3 value is 1, if random repetition of 1,2,3 value is 1 and if two or more numbers repeat value is 0
+# i.e. value for even permutations is 1, value for odd permutations is -1 and if two or more numbers repeat value is 0
 def permutation(i,j,k):
     if i == j or j == k or i==k:
         return 0
@@ -15,7 +15,7 @@ def permutation(i,j,k):
         return -1
     elif i ==2 and j == 1 and k == 0:
         return -1           
-
+#function which returns 1 if x is positive and -1 if x is negative
 def sgn(x):
     if x > 0:
         return 1

@@ -16,5 +16,6 @@ def Axan2Rot(N):
                         A[s][i][j] = round((1-co)*(N[s][i])*(N[s][j])+permutation(i,j,k)*si*N[s][k]) #Modifying non-diagonal values of rotation matrix with appropriate formulae
     return A
 # Testing the function for few values
+#This function takes input as axis angle pair of size (n,4) where n is the number of sets of axis angle pair vectors
 N = [[0,0,1,0],[0,0,1,90],[0,0,1,180]]
 print(Axan2Rot(N))

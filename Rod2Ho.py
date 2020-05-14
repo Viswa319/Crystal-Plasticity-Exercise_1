@@ -1,22 +1,27 @@
 import math
 import numpy as np
 from Rod2Axan import Rod2Axan
-def Rod2Ho(rho,Rho):
-    n = (Rod2Axan(rho,Rho))[0]
-    w = math.radians((Rod2Axan(rho,Rho))[1])
-    if Rho == 0:
-        h = [0,0,0]
-    elif Rho == math.inf:
-        h = np.zeros(len(n))
-        f = (3*(math.pi))/(4)
-        for i in range(0,3):
-            h[i] = n[i]*f
-    else:
-        f = (3)*(w-math.sin(w))*(0.25)
-        h = np.zeros(len(n))
-        for i in range(0,len(n)):
-            h[i] = n[i]*f
+#This function transforms from Rodrigues representation to homochoric representation
+def Rod2Ho(rho):
+    n = np.zeros((len(rho),4))
+    w = np.zeros(len(rho))
+    h = np.zeros((len(rho),3))
+    f = np.zeros(len(rho))
+    for i in range(0,len(rho)):
+        n[i] = (Rod2Axan(rho))[i] #first transforming Rodrigues representation to axis angle pair
+        if rho[i][3] == 0: #this is for the case where angle of rotation is 0
+            h[i] = [0,0,0]
+        elif rho[i][3] == math.inf: #this is for the case where angle of rotation is pi
+            f[i] = (3*(math.pi))/(4)
+            for j in range(0,3):
+                h[i][j] = n[i][j]*f[i]
+        else:
+            w[i] = math.radians(n[i][3])
+            f[i] = (3)*(w[i]-math.sin(w[i]))*(0.25)
+            for j in range(0,3):
+                h[i][j] = (n[i][j])*(f[i]**(1/3)) 
     return h
-rho = [0, -0, -1]
-Rho = 1
-print(Rod2Ho(rho,Rho))
+# Testing the function for few values
+#Input array of Rodrigues vector/vectors of size (n,4) where n will be the number of Rodrigues vectors
+rho = [[0.0000000, 0.0000000, -1.0000000, 0.0000000],[0.0000000, 0.0000000, 1.0000000, 1.0000000]]
+print(Rod2Ho(rho))

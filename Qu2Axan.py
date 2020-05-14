@@ -19,5 +19,6 @@ def Qu2Axan(q):
                     n[L][i] = s*q[L][i+1]
     return n
 # Testing the function for few values
+#Input array of quarternions of size (n,4) where n will be the number of set of quarternions
 q = [[1.0000000, 0.0000000, 0.0000000, 0.0000000],[0.7071068 ,0.0000000, 0.0000000, 0.7071068],[0.0000000 ,0.0000000, 0.0000000, 1.0000000]]
 print(Qu2Axan(q))

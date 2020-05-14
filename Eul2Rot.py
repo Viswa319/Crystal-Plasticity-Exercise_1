@@ -15,7 +15,8 @@ def Rotation_Tensor(k1,x):
                 Z1[i,j] = -round(math.sin(X),7)
     return Z1
 #This function transforms Euler angles  to rotation matrix
-def Eul2Rot(Theta,rotation):
+def Eul2Rot(Theta,rotation):#This function takes input of vector of Euler indices of size (n,3) and 
+    #set of rotations (for example (3,1,3)) of size (n,3) where n is the number of sets of euler angles
     Z1 = np.zeros((len(Theta),3,3))
     Z2 = np.zeros((len(Theta),3,3))
     X = np.zeros((len(Theta),3,3))
@@ -29,6 +30,6 @@ def Eul2Rot(Theta,rotation):
         R[i] = np.dot(Y[i],Z1[i]) #Multiplies the resultant matrix from above operation and first rotation matrix which gives the final rotation
     return R
 # Testing the function for few values
-Theta = [[0,0,0],[90,0,0],[90,360,-90]]
+Theta = [[90,90,0],[180,180,0],[90,360,-90]]
 rot = [[2,0,2],[2,0,2],[2,0,2]]
 print(Eul2Rot(Theta,rot))

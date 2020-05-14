@@ -2,8 +2,9 @@ import math
 import numpy as np
 from modulus import modulus
 #This function transforms homochoric representation to axis angle pair representation
-def Ho2Axan(h):
+def Ho2Axan(h):#Input homochoric vector of size(n,3) where n is the number of sets of homochoric vectors
     n = np.zeros((len(h),4)) #Creating array with zeros in it
+    H = np.zeros(len(h))
     for J in range(0,len(h)):
         gamma = np.zeros(16) #Creating zero vector of size 16
         for i in range(0,4): #Assigning gamma vector which is given in the Rowenhorst paper
@@ -27,7 +28,6 @@ def Ho2Axan(h):
                 gamma[(4*i)+2] = -0.000019807567240
                 gamma[(4*i)+3] = 0.000003953714684
                 gamma[(4*i)+4] = -0.000000365550014
-            H = np.zeros(len(h))
             H[J] = (modulus(h[J]))**2
             if H[J] == 0: #special case for H = 0 
                 n[J] = [0,0,1,0]

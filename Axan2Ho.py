@@ -10,5 +10,6 @@ def Axan2Ho(N):
             h[j][i] = f*N[j][i] #Applying transformation from axis-angle pair to homochoric representation  
     return h
 # Testing the function for few values
+#This function takes input as axis angle pair of size (n,4) where n is the number of sets of axis angle pair vectors
 N = [[0,0,1,0],[0,0,1,90],[0,0,1,180]]
 print(Axan2Ho(N))

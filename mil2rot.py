@@ -3,7 +3,8 @@ import numpy as np
 from cross_product import cross_product
 from modulus import modulus
 from modulus import normalize
-def mil2rot(Dir,Pla):
+#Function transforms Miller indices to rotation matrix
+def mil2rot(Dir,Pla):#Input direction miller indices and planar miller indices respectively
     b = normalize(Dir)
     n = normalize(Pla)
     t = cross_product(n,b)/(modulus(cross_product(n,b)))

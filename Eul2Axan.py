@@ -30,5 +30,6 @@ def Eul2Axa(Theta):
             n[i][3] =  np.round(math.degrees((2*math.pi)-alpha),6)
     return(n)
 # Testing the function for few values
+#This function takes input of vector of Euler indices of size (n,3) where n is the number of sets of euler angles
 Theta = [[0,0,0],[90,0,0],[180,0,0]]
 print(Eul2Axa(Theta))
