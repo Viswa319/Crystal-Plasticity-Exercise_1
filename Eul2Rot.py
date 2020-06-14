@@ -29,7 +29,3 @@ def Eul2Rot(Theta,rotation):#This function takes input of vector of Euler indice
         Y[i] = np.dot(Z2[i],X[i]) #Multiplies third and second rotation matrices
         R[i] = np.dot(Y[i],Z1[i]) #Multiplies the resultant matrix from above operation and first rotation matrix which gives the final rotation
     return R
-# Testing the function for few values
-Theta = [[90,90,0],[180,180,0],[90,360,-90]]
-rot = [[2,0,2],[2,0,2],[2,0,2]]
-print(Eul2Rot(Theta,rot))
