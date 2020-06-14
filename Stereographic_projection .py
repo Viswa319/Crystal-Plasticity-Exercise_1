@@ -10,8 +10,7 @@ def circle(r):
     y=np.sqrt(r*r - x*x)
     return x,y
 def Stereographic_projection(Eulerangles,Unitnormal):
-    rotation = [[2,0,2]]
-    Rotation_matrix = Eul2Rot(Eulerangles,rotation)
+    Rotation_matrix = Eul2Rot(Eulerangles)
     Sym = SymmopCub432()
     Unitnormal = normalize(Unitnormal)
     Global_coordinates = np.transpose(Unitnormal).dot(Rotation_matrix)

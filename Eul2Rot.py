@@ -15,7 +15,7 @@ def Rotation_Tensor(k1,x):
                 Z1[i,j] = -round(math.sin(X),7)
     return Z1
 #This function transforms Euler angles  to rotation matrix
-def Eul2Rot(Theta,rotation):#This function takes input of vector of Euler indices of size (n,3) and 
+def Eul2Rot(Theta):#This function takes input of vector of Euler indices of size (n,3) and 
     #set of rotations (for example (3,1,3)) of size (n,3) where n is the number of sets of euler angles
     Z1 = np.zeros((len(Theta),3,3))
     Z2 = np.zeros((len(Theta),3,3))
@@ -23,9 +23,9 @@ def Eul2Rot(Theta,rotation):#This function takes input of vector of Euler indice
     Y = np.zeros((len(Theta),3,3))
     R = np.zeros((len(Theta),3,3))    
     for i in range(0,len(Theta)):
-        Z1[i] = Rotation_Tensor(rotation[i][0],Theta[i][0]) #Generates a direction cosine matrix for first rotation
-        X[i] = Rotation_Tensor(rotation[i][1],Theta[i][1]) #Generates a direction cosine matrix for second rotation
-        Z2[i] = Rotation_Tensor(rotation[i][2],Theta[i][2]) #Generates a direction cosine matrix for third rotation
+        Z1[i] = Rotation_Tensor(2,Theta[i][0]) #Generates a direction cosine matrix for first rotation
+        X[i] = Rotation_Tensor(0,Theta[i][1]) #Generates a direction cosine matrix for second rotation
+        Z2[i] = Rotation_Tensor(2,Theta[i][2]) #Generates a direction cosine matrix for third rotation
         Y[i] = np.dot(Z2[i],X[i]) #Multiplies third and second rotation matrices
         R[i] = np.dot(Y[i],Z1[i]) #Multiplies the resultant matrix from above operation and first rotation matrix which gives the final rotation
     return R
