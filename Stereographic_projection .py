@@ -46,6 +46,6 @@ def Stereographic_projection(Eulerangles,Unitnormal):
         ax[1].scatter(r,theta,color='blue')
     plt.show()
     #return(Stereographic_coordinates)
-Unitnorm = [0,1,1]
-Eulerangle = [[60,50,80],[9,10,75],[10,8,60]]
+Unitnorm = [1,1,0]
+Eulerangle = [[0,45,0]]
 Stereographic_projection(Eulerangle,Unitnorm)
