@@ -1,7 +1,12 @@
+# Sai Viswanadha Sastry Upadhyayula
+# 65130
+# Crystal Plasticity
+# This program gives elastic material constants taking stiffness matrix as input
 import numpy as np
 import math
 from modulus import modulus
 def StiffnessMatrix():
+    # This function generates 
     C = np.zeros((6,6))
     ClassOfMaterials = ['Triclinic','Monoclinic','Orthotropic','Transversely Isotropic','Cubic','Isotropic']
     print(ClassOfMaterials)
